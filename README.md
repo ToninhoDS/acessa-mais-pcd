@@ -77,7 +77,7 @@ A inclusão digital de pessoas com deficiência é fundamental porque:
 
 1. **Clone o repositório**
 ```bash
-git clone https://github.com/seu-usuario/acessa-mais-pcd.git
+git clone https://github.com/ToninhoDS/acessa-mais-pcd
 cd acessa-mais-pcd
 ```
 
@@ -168,7 +168,7 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 
 **Desenvolvido com ❤️ para a inclusão digital de pessoas com deficiência**
 
-[![GitHub stars](https://img.shields.io/github/stars/seu-usuario/acessa-mais-pcd?style=social)](https://github.com/seu-usuario/acessa-mais-pcd)
-[![GitHub forks](https://img.shields.io/github/forks/seu-usuario/acessa-mais-pcd?style=social)](https://github.com/seu-usuario/acessa-mais-pcd)
+[![GitHub stars](https://img.shields.io/github/stars/toninhods/acessa-mais-pcd?style=social)](https://github.com/toninhods/acessa-mais-pcd)
+[![GitHub forks](https://img.shields.io/github/forks/toninhods/acessa-mais-pcd?style=social)](https://github.com/seu-usuario/acessa-mais-pcd)
 
 </div>
