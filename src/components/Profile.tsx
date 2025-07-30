@@ -210,16 +210,14 @@ export const Profile: React.FC<ProfileProps> = ({
             
             <div className="space-y-3 text-sm text-gray-600">
               <p>
-                O <strong>DTI</strong> foi desenvolvido especialmente para 
-                pessoas com deficiência que desejam ingressar na área de tecnologia.
+                A <strong> DTI - SCS</strong>, desenvolveu este sistema para apoiar os primeiros passos de quem deseja conhecer e ingressar na área de Tecnologia da Informação (TI), com foco especial em pessoas com limitações ou pessoas com deficiência (PcDs) interessadas em construir uma carreira no setor.
               </p>
               <p>
-                Nossa missão é fornecer recursos acessíveis, orientação especializada e 
-                uma jornada estruturada para o sucesso na carreira tech.
+                Nossa missão é oferecer recursos acessíveis, orientação especializada e uma trajetória estruturada que promova o desenvolvimento profissional e a inclusão real no mercado de tecnologia.
               </p>
               <div className="flex items-center space-x-2 text-red-600">
                 <Heart className="h-4 w-4" aria-hidden="true" />
-                <span className="font-medium">Feito com dedicação para a inclusão</span>
+                <span className="font-medium">Feito com dedicação.</span>
               </div>
             </div>
           </div>
