@@ -125,6 +125,79 @@ h3 {
   color: rgb(147 197 253 / var(--tw-text-opacity)) !important;
 }
 
+/* Fix for very light text colors in high contrast mode */
+.high-contrast .text-gray-400 {
+  color: rgb(209 213 219 / var(--tw-text-opacity)) !important;
+}
+
+.high-contrast .text-gray-500 {
+  color: rgb(156 163 175 / var(--tw-text-opacity)) !important;
+}
+
+.high-contrast .placeholder-gray-500::placeholder {
+  color: rgb(107 114 128) !important;
+}
+
+.high-contrast .placeholder-gray-500::-webkit-input-placeholder {
+  color: rgb(107 114 128) !important;
+}
+
+.high-contrast .placeholder-gray-500::-moz-placeholder {
+  color: rgb(107 114 128) !important;
+}
+
+.high-contrast .placeholder-gray-500:-ms-input-placeholder {
+  color: rgb(107 114 128) !important;
+}
+
+/* Fix for accessibility tip colors in high contrast mode */
+.high-contrast .bg-gradient-to-r.from-blue-50.to-green-50 {
+  background: rgb(30 58 138 / 0.3) !important;
+  border-color: rgb(147 197 253) !important;
+}
+
+.high-contrast .text-gray-700 {
+  color: rgb(209 213 219 / var(--tw-text-opacity)) !important;
+}
+
+/* Fix for yellow badge in high contrast mode */
+.high-contrast .bg-gradient-to-r.from-yellow-100.to-yellow-200 {
+  background: rgb(133 77 14 / 0.8) !important;
+  border-color: rgb(245 158 11) !important;
+}
+
+.high-contrast .text-yellow-800 {
+  color: rgb(254 240 138) !important;
+}
+
+/* Melhorar contraste de dicas de acessibilidade e badges amarelos */
+.high-contrast .bg-yellow-100 {
+  background-color: rgb(254, 240, 138) !important;
+}
+
+.high-contrast .text-yellow-800 {
+  color: rgb(133, 77, 14) !important;
+}
+
+/* Melhorar contraste das setas de navegação */
+.high-contrast .text-gray-700 {
+  color: rgb(17, 24, 39) !important;
+}
+
+.high-contrast .bg-gray-100 {
+  background-color: rgb(243, 244, 246) !important;
+  border: 2px solid rgb(107, 114, 128) !important;
+}
+
+.high-contrast .group:hover .bg-blue-100 {
+  background-color: rgb(219, 234, 254) !important;
+  border-color: rgb(59, 130, 246) !important;
+}
+
+.high-contrast .group:hover .text-blue-600 {
+  color: rgb(37, 99, 235) !important;
+}
+
 /* Ensure input fields are always readable */
 .high-contrast input[type="text"],
 .high-contrast input[type="email"],

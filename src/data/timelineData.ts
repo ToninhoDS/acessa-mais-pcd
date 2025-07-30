@@ -27,11 +27,15 @@ export const timelineData: TimelineStep[] = [
     videos: [
       {
         title: "O que é TI? Conceitos básicos",
-        url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        url: "https://www.youtube.com/watch?v=dyPpCl23MZg"
       },
       {
         title: "Carreiras em TI para Iniciantes",
-        url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        url: "https://www.youtube.com/watch?v=TM6ezL7VKck"
+      },
+      {
+        title: "Carreiras em TI para Iniciantes",
+        url: "https://www.youtube.com/watch?v=H84WD_xyj10"
       }
     ],
     links: [
@@ -57,14 +61,19 @@ export const timelineData: TimelineStep[] = [
     videos: [
       {
         title: "Componentes de um PC - Guia Completo",
-        url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        url: "https://www.youtube.com/watch?v=ZSIrMa7JYc8&t=39s"
       }
     ],
     links: [
       {
-        title: "Curso de Manutenção de Computadores - SENAI",
-        url: "https://www.senai.br",
-        description: "Curso profissionalizante com foco em inclusão"
+        title: "SENAI - Tecnologia da Informação",
+        url: "https://www.sp.senai.br/cursos/0/tecnologia-da-informacao-e-informatica",
+        description: "Cursos profissionalizantes em TI"
+      },
+      {
+        title: "WR Educacional - Montagem e Manutenção",
+        url: "https://www.wreducacional.com.br/curso-gratis-de-montagem-e-manutencao-de-computadores",
+        description: "Curso gratuito de montagem e manutenção de computadores"
       }
     ]
   },
@@ -78,7 +87,7 @@ export const timelineData: TimelineStep[] = [
     videos: [
       {
         title: "Fundamentos de Redes de Computadores",
-        url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        url: "https://www.youtube.com/watch?v=qeKIqC2cBo0&list=PL1ohpeRa0gZ8mY4oGrX1d-H9YZW_jTAxb"
       }
     ],
     links: [
@@ -99,11 +108,11 @@ export const timelineData: TimelineStep[] = [
     videos: [
       {
         title: "Lógica de Programação para Iniciantes",
-        url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        url: "https://www.youtube.com/watch?v=iF2MdbrTiBM"
       },
       {
         title: "Escolhendo sua primeira linguagem de programação",
-        url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        url: "https://www.youtube.com/watch?v=gMxQ8vxH9Vk"
       }
     ],
     links: [
@@ -129,14 +138,14 @@ export const timelineData: TimelineStep[] = [
     videos: [
       {
         title: "Fundamentos do Suporte Técnico",
-        url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        url: "https://www.youtube.com/watch?v=QZHYIle9kIc"
       }
     ],
     links: [
       {
-        title: "CompTIA A+ Certification",
-        url: "https://www.comptia.org",
-        description: "Certificação internacional em suporte técnico"
+        title: "SENAC - Analista de Suporte Técnico",
+        url: "https://www.sp.senac.br/cursos-livres/curso-de-analista-de-suporte-tecnico",
+        description: "Curso de analista de suporte técnico"
       }
     ]
   },
@@ -150,7 +159,7 @@ export const timelineData: TimelineStep[] = [
     videos: [
       {
         title: "Fundamentos de Gestão de Projetos",
-        url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        url: "https://www.youtube.com/watch?v=trhDHOC3xGw&list=PLnhUek92-enioRGAFZ9Vf_qfWt7rCR8vw"
       }
     ],
     links: [
@@ -171,7 +180,7 @@ export const timelineData: TimelineStep[] = [
     videos: [
       {
         title: "Tecnologia no Sistema Financeiro",
-        url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        url: "https://www.youtube.com/watch?v=SGzMoHVsdsw"
       }
     ],
     links: [
@@ -192,7 +201,7 @@ export const timelineData: TimelineStep[] = [
     videos: [
       {
         title: "Introdução à Cibersegurança",
-        url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        url: "https://www.youtube.com/watch?v=ZBK_wjexxZo"
       }
     ],
     links: [
@@ -213,11 +222,11 @@ export const timelineData: TimelineStep[] = [
     videos: [
       {
         title: "Como criar um currículo para TI",
-        url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        url: "https://www.youtube.com/watch?v=QHpXC3p-pd4"
       },
       {
         title: "Preparação para entrevistas técnicas",
-        url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        url: "https://www.youtube.com/watch?v=1YMpsDf7fCk"
       }
     ],
     links: [
@@ -232,9 +241,9 @@ export const timelineData: TimelineStep[] = [
         description: "Portal de vagas com filtros para PCD"
       },
       {
-        title: "i.Social - Plataforma de Inclusão",
-        url: "https://www.isocial.com.br",
-        description: "Plataforma especializada em conectar PCD com empresas"
+        title: "Catho - Portal de Empregos",
+        url: "https://www.catho.com.br/",
+        description: "Portal de empregos com oportunidades para PCD"
       }
     ]
   },
@@ -248,19 +257,19 @@ export const timelineData: TimelineStep[] = [
     videos: [
       {
         title: "A importância do networking em TI",
-        url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        url: "https://www.youtube.com/watch?v=ciSR42FsuEs"
       }
     ],
     links: [
       {
         title: "Comunidade PCD Tech Brasil",
-        url: "https://www.linkedin.com",
+        url: "https://www.linkedin.com/groups/4366419/",
         description: "Grupo do LinkedIn para profissionais PCD em tecnologia"
       },
       {
-        title: "Meetup - Eventos de Tecnologia",
-        url: "https://www.meetup.com",
-        description: "Encontre eventos e grupos de tecnologia na sua região"
+        title: "Eventos de Tecnologia - LinkedIn",
+        url: "https://www.linkedin.com/groups/4366419/",
+        description: "Encontre eventos e grupos de tecnologia"
       }
     ]
   }

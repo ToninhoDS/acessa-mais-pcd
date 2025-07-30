@@ -17,6 +17,13 @@ function App() {
   const [showWelcomeModal, setShowWelcomeModal] = useState(false);
   const [userName, setUserName] = useState<string>('');
 
+  // Função para mudar view e fazer scroll para o topo
+  const handleViewChange = (view: View) => {
+    setCurrentView(view);
+    // Scroll suave para o topo
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   // Load user preferences
   useEffect(() => {
     const savedFontSize = localStorage.getItem('fontSize') as typeof fontSize;
@@ -102,7 +109,7 @@ function App() {
       
       <main 
         id="main-content"
-        className="flex-1 pb-20"
+        className="flex-1 pb-24"
         role="main"
         aria-label="Conteúdo principal do aplicativo"
       >
@@ -111,7 +118,7 @@ function App() {
       
       <NavigationBar 
         currentView={currentView} 
-        setCurrentView={setCurrentView}
+        setCurrentView={handleViewChange}
       />
       
       {showWelcomeModal && (

@@ -57,23 +57,24 @@ export const Resources: React.FC = () => {
         </div>
 
         {/* Search */}
-        <div className="mb-4">
+        <div className="mb-6">
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" aria-hidden="true" />
+            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" aria-hidden="true" />
             <input
               type="text"
-              placeholder="Buscar recursos..."
+              placeholder="Buscar recursos por título ou descrição..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 shadow-sm hover:shadow-md text-gray-900 placeholder-gray-500"
               aria-label="Buscar recursos por título ou descrição"
             />
           </div>
         </div>
 
         {/* Category filters */}
-        <div className="mb-6">
-          <div className="flex overflow-x-auto space-x-2 pb-2" role="tablist" aria-label="Categorias de recursos">
+        <div className="mb-8">
+          <h3 className="text-sm font-semibold text-gray-900 mb-4">Filtrar por categoria:</h3>
+          <div className="grid grid-cols-3 gap-3 max-w-2xl" role="tablist" aria-label="Categorias de recursos">
             {categories.map((category) => {
               const Icon = category.icon;
               const isSelected = selectedCategory === category.id;
@@ -82,17 +83,17 @@ export const Resources: React.FC = () => {
                 <button
                   key={category.id}
                   onClick={() => setSelectedCategory(category.id)}
-                  className={`flex items-center space-x-2 px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                  className={`flex items-center justify-center space-x-2 px-4 py-3 rounded-xl text-sm font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 shadow-sm min-h-[48px] ${
                     isSelected
-                      ? 'bg-blue-600 text-white'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-md transform scale-105'
+                      : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200 hover:border-gray-300 hover:shadow-md'
                   }`}
                   role="tab"
                   aria-selected={isSelected}
                   aria-label={`Filtrar por ${category.label}`}
                 >
-                  <Icon className="h-4 w-4" aria-hidden="true" />
-                  <span>{category.label}</span>
+                  <Icon className="h-4 w-4 flex-shrink-0" aria-hidden="true" />
+                  <span className="text-center">{category.label}</span>
                 </button>
               );
             })}
@@ -115,37 +116,46 @@ export const Resources: React.FC = () => {
               return (
                 <div 
                   key={resource.id} 
-                  className="bg-white rounded-lg shadow-sm border border-gray-200 p-4"
+                  className="bg-white rounded-xl shadow-sm border border-gray-200 p-5 hover:shadow-md transition-shadow duration-200"
                   role="listitem"
                 >
-                  <div className="flex items-start space-x-3">
-                    <div className={`p-2 rounded-lg ${resource.featured ? 'bg-yellow-500' : 'bg-blue-600'}`}>
-                      <Icon className="h-5 w-5 text-white" aria-hidden="true" />
+                  <div className="flex items-start space-x-4">
+                    <div className={`p-3 rounded-xl ${resource.featured ? 'bg-gradient-to-br from-yellow-400 to-yellow-600' : 'bg-gradient-to-br from-blue-500 to-blue-700'} shadow-sm`}>
+                      <Icon className="h-6 w-6 text-white" aria-hidden="true" />
                     </div>
                     
                     <div className="flex-1 min-w-0">
-                      <div className="flex items-start justify-between">
-                        <h3 className="font-semibold text-gray-900">
-                          {resource.title}
-                          {resource.featured && (
-                            <span className="ml-2 bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded-full">
-                              Destaque
-                            </span>
-                          )}
-                        </h3>
+                      <div className="mb-3">
+                        <div className="flex items-start justify-between mb-2">
+                          <div className="flex items-center space-x-2">
+                            <h3 className="font-bold text-lg text-gray-900 leading-tight">
+                              {resource.title}
+                            </h3>
+                            {resource.featured && (
+                               <span className="bg-gradient-to-r from-yellow-100 to-yellow-200 text-yellow-800 text-xs font-semibold px-2 py-1 rounded-full border border-yellow-300 flex items-center space-x-1">
+                                 <span>⭐</span>
+                                 <span>Destaque</span>
+                               </span>
+                             )}
+                          </div>
+                        </div>
+                        
+                        <p className="text-gray-700 text-sm leading-relaxed mb-4 pr-2">
+                          {resource.description}
+                        </p>
                       </div>
                       
-                      <p className="text-gray-600 text-sm mt-1 leading-relaxed">
-                        {resource.description}
-                      </p>
-                      
-                      <div className="flex items-center justify-between mt-3">
-                        <div className="flex items-center space-x-3 text-xs text-gray-500">
-                          <span className="bg-gray-100 text-gray-800 px-2 py-1 rounded-full capitalize">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center space-x-3">
+                          <span className="bg-gradient-to-r from-gray-100 to-gray-200 text-gray-800 text-xs font-medium px-3 py-1.5 rounded-full border border-gray-300 capitalize">
                             {resource.category}
                           </span>
                           {resource.price && (
-                            <span className={resource.price === 'Gratuito' ? 'text-green-600 font-medium' : 'text-gray-600'}>
+                            <span className={`text-xs font-semibold px-3 py-1.5 rounded-full ${
+                              resource.price === 'Gratuito' 
+                                ? 'bg-gradient-to-r from-green-100 to-green-200 text-green-700 border border-green-300' 
+                                : 'bg-gradient-to-r from-blue-100 to-blue-200 text-blue-700 border border-blue-300'
+                            }`}>
                               {resource.price}
                             </span>
                           )}
@@ -155,11 +165,11 @@ export const Resources: React.FC = () => {
                           href={resource.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center space-x-1 text-blue-600 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-2 py-1 transition-colors"
+                          className="flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-4 py-2 rounded-lg font-medium text-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 shadow-sm hover:shadow-md"
                           aria-label={`Acessar ${resource.title} (abre em nova aba)`}
                         >
-                          <span className="text-sm font-medium">Acessar</span>
-                          <ExternalLink className="h-3 w-3" aria-hidden="true" />
+                          <span>Acessar</span>
+                          <ExternalLink className="h-4 w-4" aria-hidden="true" />
                         </a>
                       </div>
                     </div>

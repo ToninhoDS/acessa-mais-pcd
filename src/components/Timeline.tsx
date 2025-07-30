@@ -114,16 +114,18 @@ export const Timeline: React.FC<TimelineProps> = ({ userName }) => {
   };
 
   return (
-    <div className={`px-4 py-6 ${isProgressSticky ? 'pt-24' : ''}`}>
-      {/* Sticky Progress Bar */}
-      {isProgressSticky && (
+    <div className={`px-4 py-6 pb-28 ${isProgressSticky ? 'pt-24' : ''}`}>
+      {/* Sticky Progress Bar - com transição de opacidade */}
+      <div 
+        className={`transition-opacity duration-300 ${isProgressSticky ? 'opacity-100' : 'opacity-0 pointer-events-none'} fixed top-0 left-0 right-0 z-40`}
+      >
         <ProgressBar 
           completedSteps={completedSteps.size}
           totalSteps={timelineData.length}
           userName={userName}
           isSticky={true}
         />
-      )}
+      </div>
       
       <div className="max-w-md mx-auto">
         <div className="mb-6">
@@ -135,8 +137,8 @@ export const Timeline: React.FC<TimelineProps> = ({ userName }) => {
             Cada etapa contém recursos valiosos para seu desenvolvimento.
           </p>
           
-          {/* Static Progress Bar */}
-          <div className="mt-4">
+          {/* Static Progress Bar - apenas visível quando não está fixo */}
+          <div className={`mt-4 transition-opacity duration-300 ${isProgressSticky ? 'opacity-0' : 'opacity-100'}`}>
             <ProgressBar 
               completedSteps={completedSteps.size}
               totalSteps={timelineData.length}
@@ -145,7 +147,7 @@ export const Timeline: React.FC<TimelineProps> = ({ userName }) => {
           </div>
         </div>
 
-        <div className="space-y-4" role="list" aria-label="Etapas da jornada em TI">
+        <div className="space-y-3" role="list" aria-label="Etapas da jornada em TI">
           {timelineData.map((step, index) => {
             const isCompleted = completedSteps.has(step.id);
             const isActive = activeStep === step.id;
@@ -154,20 +156,20 @@ export const Timeline: React.FC<TimelineProps> = ({ userName }) => {
             return (
               <div key={step.id} id={`step-${step.id}`} className="relative" role="listitem">
                 <div className="flex">
-                  <div className="flex flex-col items-center mr-4">
+                  <div className="flex flex-col items-center mr-2">
                     <button
                       onClick={() => toggleStepComplete(step.id)}
                       className="p-1 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors z-10 bg-white"
                       aria-label={`${isCompleted ? 'Marcar como não concluída' : 'Marcar como concluída'}: ${step.title}`}
                     >
                       {isCompleted ? (
-                        <CheckCircle className="h-8 w-8 text-green-600" />
+                        <CheckCircle className="h-7 w-7 text-green-600" />
                       ) : (
-                        <Circle className="h-8 w-8 text-gray-400 hover:text-blue-500 transition-colors" />
+                        <Circle className="h-7 w-7 text-gray-400 hover:text-blue-500 transition-colors" />
                       )}
                     </button>
                     {!isLast && (
-                      <div className="w-0.5 h-16 bg-gray-300 mt-2" aria-hidden="true" />
+                      <div className="w-0.5 h-10 bg-gray-300 mt-1 relative z-0" aria-hidden="true" />
                     )}
                   </div>
                 
@@ -176,7 +178,7 @@ export const Timeline: React.FC<TimelineProps> = ({ userName }) => {
                       className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden cursor-pointer hover:shadow-md transition-shadow"
                       onClick={() => toggleStepDetails(step.id)}
                     >
-                      <div className="p-4">
+                      <div className="p-3">
                         <div className="flex items-center justify-between">
                           <div className="flex-1 min-w-0">
                             <h3 className={`font-semibold ${isCompleted ? 'text-green-800' : 'text-gray-900'}`}>
@@ -204,11 +206,11 @@ export const Timeline: React.FC<TimelineProps> = ({ userName }) => {
                       </div>
 
                       {isActive && (
-                        <div className="border-t border-gray-200 p-4 bg-gray-50">
-                          <div className="space-y-4">
+                        <div className="border-t border-gray-200 p-3 bg-gray-50">
+                          <div className="space-y-3">
                             {step.content && (
                               <div>
-                                <h4 className="font-medium text-gray-900 mb-2">Conteúdo</h4>
+                                <h4 className="font-medium text-gray-900 mb-1">Conteúdo</h4>
                                 <p className="text-gray-700 text-sm leading-relaxed">
                                   {step.content}
                                 </p>
@@ -217,8 +219,8 @@ export const Timeline: React.FC<TimelineProps> = ({ userName }) => {
 
                             {step.videos && step.videos.length > 0 && (
                               <div>
-                                <h4 className="font-medium text-gray-900 mb-2">Vídeos Recomendados</h4>
-                                <div className="space-y-2">
+                                <h4 className="font-medium text-gray-900 mb-1">Vídeos Recomendados</h4>
+                                <div className="space-y-1.5">
                                   {step.videos.map((video, videoIndex) => (
                                     <a
                                       key={videoIndex}
@@ -240,8 +242,8 @@ export const Timeline: React.FC<TimelineProps> = ({ userName }) => {
 
                             {step.links && step.links.length > 0 && (
                               <div>
-                                <h4 className="font-medium text-gray-900 mb-2">Links Úteis</h4>
-                                <div className="space-y-2">
+                                <h4 className="font-medium text-gray-900 mb-1">Links Úteis</h4>
+                                <div className="space-y-1.5">
                                   {step.links.map((link, linkIndex) => (
                                     <a
                                       key={linkIndex}
@@ -266,7 +268,7 @@ export const Timeline: React.FC<TimelineProps> = ({ userName }) => {
                             )}
                             
                             {!isCompleted && (
-                              <div className="pt-4 border-t border-gray-200">
+                              <div className="pt-3 border-t border-gray-200">
                                 <button
                                   onClick={(e) => {
                                     e.stopPropagation();
