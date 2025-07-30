@@ -74,7 +74,7 @@ export const Resources: React.FC = () => {
         {/* Category filters */}
         <div className="mb-8">
           <h3 className="text-sm font-semibold text-gray-900 mb-4">Filtrar por categoria:</h3>
-          <div className="grid grid-cols-3 gap-3 max-w-2xl" role="tablist" aria-label="Categorias de recursos">
+          <div className="grid grid-cols-3 gap-2 sm:gap-3 max-w-2xl" role="tablist" aria-label="Categorias de recursos">
             {categories.map((category) => {
               const Icon = category.icon;
               const isSelected = selectedCategory === category.id;
@@ -83,7 +83,7 @@ export const Resources: React.FC = () => {
                 <button
                   key={category.id}
                   onClick={() => setSelectedCategory(category.id)}
-                  className={`flex items-center justify-center space-x-2 px-4 py-3 rounded-xl text-sm font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 shadow-sm min-h-[48px] ${
+                  className={`flex items-center justify-center space-x-1 px-3 sm:px-4 py-3 rounded-xl text-sm font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 shadow-sm min-h-[48px] ${
                     isSelected
                       ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-md transform scale-105'
                       : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200 hover:border-gray-300 hover:shadow-md'
@@ -91,9 +91,10 @@ export const Resources: React.FC = () => {
                   role="tab"
                   aria-selected={isSelected}
                   aria-label={`Filtrar por ${category.label}`}
+                  title={category.label}
                 >
-                  <Icon className="h-4 w-4 flex-shrink-0" aria-hidden="true" />
-                  <span className="text-center">{category.label}</span>
+                  <Icon className="h-5 w-5 flex-shrink-0" aria-hidden="true" />
+                  <span className="text-center hidden xs:inline">{category.label}</span>
                 </button>
               );
             })}
@@ -101,7 +102,7 @@ export const Resources: React.FC = () => {
         </div>
 
         {/* Resources list */}
-        <div className="space-y-4" role="list" aria-label="Lista de recursos disponíveis">
+        <div className="space-y-3" role="list" aria-label="Lista de recursos disponíveis">
           {filteredResources.length === 0 ? (
             <div className="text-center py-8">
               <BookOpen className="h-12 w-12 text-gray-400 mx-auto mb-3" aria-hidden="true" />
@@ -116,62 +117,60 @@ export const Resources: React.FC = () => {
               return (
                 <div 
                   key={resource.id} 
-                  className="bg-white rounded-xl shadow-sm border border-gray-200 p-5 hover:shadow-md transition-shadow duration-200"
+                  className="bg-white rounded-xl shadow-sm border border-gray-200 p-4 hover:shadow-md transition-shadow duration-200"
                   role="listitem"
                 >
-                  <div className="flex items-start space-x-4">
-                    <div className={`p-3 rounded-xl ${resource.featured ? 'bg-gradient-to-br from-yellow-400 to-yellow-600' : 'bg-gradient-to-br from-blue-500 to-blue-700'} shadow-sm`}>
-                      <Icon className="h-6 w-6 text-white" aria-hidden="true" />
-                    </div>
-                    
-                    <div className="flex-1 min-w-0">
-                      <div className="mb-3">
-                        <div className="flex items-start justify-between mb-2">
-                          <div className="flex items-center space-x-2">
-                            <h3 className="font-bold text-lg text-gray-900 leading-tight">
-                              {resource.title}
-                            </h3>
-                            {resource.featured && (
-                               <span className="bg-gradient-to-r from-yellow-100 to-yellow-200 text-yellow-800 text-xs font-semibold px-2 py-1 rounded-full border border-yellow-300 flex items-center space-x-1">
-                                 <span>⭐</span>
-                                 <span>Destaque</span>
-                               </span>
-                             )}
-                          </div>
+                  <div className="flex flex-col space-y-3">
+                    <div className="flex items-start space-x-3">
+                      <div className={`p-3.5 rounded-xl ${resource.featured ? 'bg-gradient-to-br from-yellow-400 to-yellow-600' : 'bg-gradient-to-br from-blue-500 to-blue-700'} shadow-sm flex-shrink-0`}>
+                        <Icon className="h-5 w-5 text-white" aria-hidden="true" />
+                      </div>
+                      
+                      <div className="flex-1 min-w-0 w-full">
+                        <div className="relative mb-2 w-full">
+                          <h3 className="font-bold text-lg text-gray-900 leading-tight pr-20">
+                            {resource.title}
+                          </h3>
+                          {resource.featured && (
+                             <span className="absolute top-0 right-0 bg-gradient-to-r from-yellow-100 to-yellow-200 text-yellow-800 text-xs font-semibold px-2 py-1 rounded-full border border-yellow-300 flex items-center space-x-1">
+                               <span>⭐</span>
+                               <span>Destaque</span>
+                             </span>
+                           )}
                         </div>
                         
-                        <p className="text-gray-700 text-sm leading-relaxed mb-4 pr-2">
+                        <p className="text-gray-700 text-sm leading-relaxed w-full min-w-0 flex-1">
                           {resource.description}
                         </p>
                       </div>
-                      
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center space-x-3">
-                          <span className="bg-gradient-to-r from-gray-100 to-gray-200 text-gray-800 text-xs font-medium px-3 py-1.5 rounded-full border border-gray-300 capitalize">
-                            {resource.category}
+                    </div>
+                    
+                    <div className="flex items-center justify-between gap-2 mt-1">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className="bg-gradient-to-r from-gray-100 to-gray-200 text-gray-800 text-xs font-medium px-2.5 py-1.5 rounded-full border border-gray-300 capitalize whitespace-nowrap">
+                          {resource.category}
+                        </span>
+                        {resource.price && (
+                          <span className={`text-xs font-semibold px-2.5 py-1.5 rounded-full whitespace-nowrap ${
+                            resource.price === 'Gratuito' 
+                              ? 'bg-gradient-to-r from-green-100 to-green-200 text-green-700 border border-green-300' 
+                              : 'bg-gradient-to-r from-blue-100 to-blue-200 text-blue-700 border border-blue-300'
+                          }`}>
+                            {resource.price}
                           </span>
-                          {resource.price && (
-                            <span className={`text-xs font-semibold px-3 py-1.5 rounded-full ${
-                              resource.price === 'Gratuito' 
-                                ? 'bg-gradient-to-r from-green-100 to-green-200 text-green-700 border border-green-300' 
-                                : 'bg-gradient-to-r from-blue-100 to-blue-200 text-blue-700 border border-blue-300'
-                            }`}>
-                              {resource.price}
-                            </span>
-                          )}
-                        </div>
-                        
-                        <a
-                          href={resource.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-4 py-2 rounded-lg font-medium text-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 shadow-sm hover:shadow-md"
-                          aria-label={`Acessar ${resource.title} (abre em nova aba)`}
-                        >
-                          <span>Acessar</span>
-                          <ExternalLink className="h-4 w-4" aria-hidden="true" />
-                        </a>
+                        )}
                       </div>
+                      
+                      <a
+                        href={resource.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-shrink-0 flex items-center space-x-1 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-3 py-2 rounded-lg font-medium text-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 shadow-sm hover:shadow-md"
+                        aria-label={`Acessar ${resource.title} (abre em nova aba)`}
+                      >
+                        <span>Acessar</span>
+                        <ExternalLink className="h-4 w-4" aria-hidden="true" />
+                      </a>
                     </div>
                   </div>
                 </div>
